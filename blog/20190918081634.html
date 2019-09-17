@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+<title>PerlでもマルチCPUを最大限に活用できる - Perlの哲学 - Perlってどんなプログラミング言語なの</title>
+<meta name="description" content="Perlでは、マルチCPU対応の方法を解説します。PerlではマルチCPU対応できないのではないかという誤解が、Web上には、たくさんあります。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/">Perlの哲学 - Perlってどんなプログラミング言語なの</a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20190918081634.html">PerlでもマルチCPUを最大限に活用できる</a></h2>
+<p>
+  Perlでは、マルチCPU対応の方法を解説します。PerlではマルチCPU対応できないのではないかという誤解が、Web上には、たくさんあります。
+</p>
+<p>
+  正確な情報は、ある方法であれば、マルチCPU対応ができて、ある方法では、マルチCPU対応できないということです。
+</p>
+<p>
+  どのような方法であれば、マルチCPU対応がができて、どのような方法では、マルチCPU対応できないのか、把握しておきましょう。
+</p>
+<h3>Webアプリにおけるプリフォークを使ったマルチCPU対応</h3>
+<p>
+  Perlでは、Webアプリケーションであれば、プリフォークという機能を使って、マルチCPU対応ができます。
+</p>
+<p>
+  プリフォークという機能を使うと、マルチCPUの資源をフル活用することができます。
+</p>
+<p>
+  <b>誤解を解いておくと、Perlでは、Webアプリにおいては、プリフォークに対応したWebサーバーを利用すれば、マルチCPUの資源をフルに活用できるということです。</b>
+</p>
+<p>
+  プリフォークに対応したWebサーバーには、StarmanやMojoliciousがあります。
+</p>
+<h4>Starman</h4>
+<p>
+  StarmanはPerlのプリフォークに対応したWebサーバーです。
+</p>
+<blockquote>
+<p>
+  StarmanはNet::Serverモジュールをベースとした多機能なPrefork型のWebサーバです。作者はPSGI/Plackの開発や仕様策定を行っている宮川氏です。
+</p>
+<p>
+  <a href="https://gihyo.jp/dev/serial/01/perl-hackers-hub/002402">第24回　PSGI/Plack実践入門―Starman，Starlet，Twiggy，Plack::Middleware，Server::Starter（2）></a>
+</p>
+</blockquote>
+<h4>Mojolicious</h4>
+<p>
+  MojoliciousというPerlのWebフレームワークは、プリフォークに対応したWebサーバーを持っています。
+</p>
+<blockquote>
+<p>
+  Mojo::Server::Preforkは完全の機能を備えたUNIXに最適化された プリフォークの非同期IOのHTTPとWebSocketの組み込みのサーバーです。
+</p>
+<p>
+  <a href="https://github.com/yuki-kimoto/mojolicious-guides-japanese/wiki/Mojo::Server::Prefork">Mojo::Server::Prefork - プリフォークのノンブロッキングIOのHTTPとWebSocketのサーバー</a>
+</p>
+</blockquote>
+<h3>なぜPerlは、マルチCPUを有効に利用できないと信じられているの?</h3>
+<p>
+  一般的に、マルチCPU対応は、一番最初の話題として、スレッドの話題で始まるからです。
+</p>
+<p>
+  あるいは、スレッドではないが、マルチCPUを利用できる仕組みを言語が持っているかという話題から始まるからです。
+</p>
+<p>
+  Perlの場合は、スレッドが非推奨な機能であり、シングルスレッドで運用することが、想定されています。
+</p>
+<p>
+  Perlは、言語機能としては、マルチCPU対応ではないのです。
+</p>
+<p>
+  このことから、Perlは、言語機能としてはマルチCPU対応ではないということが、間違って伝達され、PerlではマルチCPU対応できないという風に誤解されています。
+</p>
+<p>
+  Perlは、Unix/Linuxのフォーク機能を使用し、プリフォークを実装しているWebサーバーを使えば、Webアプリにおいて、マルチCPU対応できます。
+</p>
+<p>
+  <b>Perlの言語自体の機能としてはありませんが、言語自体の機能を使わない方法を使えば、マルチCPU対応できるのです。</b>
+</p>
+<h3>XSという言語拡張を使えば、GPUやCPUによる並列化も可能</h3>
+<p>
+  並列処理といった場合に、本当に並列化によるパフォーマンスを求めるのであれば、スレッドというのは、不十分なパフォーマンスしか出せないということを、知っておく必要があります。
+</p>
+<p>
+  スレッド切り替えのコストは高く、スレッドの個数を3倍にしても、パフォーマンスが3倍になることはありません。
+</p>
+<p>
+  計算資源を最大限に使うためには、GPUやCPUといったハードウェアレベルの最適化が必要になってきます。
+</p>
+<p>
+  Perlでは、<a href="https://tutorial.perlzemi.com/blog/20100809127859.html">XSというC/C++による言語拡張機能</a>を使えば、C/C++やGPUを記述するためのC風の言語を使って、ハードウェアによる並列処理を実行できます。
+</p>
+<p>
+  <b>Perlレベルでは、シングルスレッドですが、C/C++レベルで記述を行うと、CPUやGPUなどのハードウェアの並列機能を最大限に活用することができます。</b>
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
