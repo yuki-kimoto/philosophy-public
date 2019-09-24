@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/css/common.css">
 <link rel="shortcut icon" href="/images/philosophi-favicon.png">
 
-<title>Title - Perlの哲学 - Perlに対する誤解を解く</title>
+<title>Title - Perlの哲学 - Perlに対する誤解を解きたい</title>
 <meta name="description" content="#!/usr/bin/env perl">
   </head>
   <body>
