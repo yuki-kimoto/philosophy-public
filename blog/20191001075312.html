@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlの演算子とC言語の演算子は、種類が似ていて、優先順位が同じ - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlの演算子とC言語の演算子は、種類が似ていて、演算子の優先順位が同じです。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20191001075312.html">Perlの演算子とC言語の演算子は、種類が似ていて、優先順位が同じ</a></h2>
+<p>
+  Perlの演算子とC言語の演算子は、種類が似ていて、演算子の優先順位が同じです。
+</p>
+<h4>Perlの演算子</h4>
+<p>
+  Perlの演算子です。C言語の演算子と同じもの、機能が似ているものを取り上げました。
+</p>
+<pre>
+# 加算演算子
+my $ret = $x + $y;
+
+# 減算演算子
+my $ret = $x - $y;
+
+# 乗算演算子
+my $ret = $x * $y;
+
+# 除算演算子
+my $ret = $x / $y;
+
+# 剰余演算子
+my $ret = $x % $y;
+
+# インクリメント/デクリメント
+my $ret = ++$x;
+my $ret = $x++;
+my $ret = --$x;
+my $ret = $x--;
+
+# 数値の比較演算子
+my $ret = $x &gt; $y;
+my $ret = $x &gt;= $y;
+my $ret = $x &lt; $y;
+my $ret = $x &lt;= $y;
+my $ret = $x == $y;
+my $ret = $x != $y;
+
+# 論理演算子
+my $ret = $x && $y;
+my $RET = $X || $y;
+my $ret = !$x;
+
+# 単項演算子
+my $ret = +$x;
+my $ret = -$x;
+
+# 右シフト演算子
+my $ret = $x &lt;&lt; $y;
+
+# 左シフト演算子
+my $ret = $x &gt;&gt; $y;
+
+# 代入演算子
+my $ret = $x;
+my $ret += $x;
+my $ret -= $x;
+my $ret *= $x;
+my $ret /= $x;
+my $ret %= $x;
+my $ret &gt;&gt;= $x;
+my $ret &lt;&lt;= $x;
+
+# アロー演算子
+my $ret = $foo-&gt;{x};
+
+# もしアクセッサを定義すれば、上記は以下のように書ける
+my $ret = $foo-&gt;x;
+</pre>
+<h4>C言語の演算子</h4>
+<p>
+  C言語の演算子です。
+</p>
+<pre>
+// 加算演算子
+int32_t ret = x + y;
+
+// 減算演算子
+int32_t ret = x - y;
+
+// 乗算演算子
+int32_t ret = x * y;
+
+// 除算演算子
+int32_t ret = x / y;
+
+// 剰余演算子
+int32_t ret = x % y;
+
+// インクリメント/デクリメント
+int32_t $ret = ++$x;
+int32_t $ret = $x++;
+int32_t $ret = --$x;
+int32_t $ret = $x--;
+
+// 数値の比較演算子
+int32_t ret = x &gt; y;
+int32_t ret = x &gt;= y;
+int32_t ret = x &lt; y;
+int32_t ret = x &lt;= y;
+int32_t ret = x == y;
+int32_t ret = x != y;
+
+// 論理演算子
+int32_t ret = x && y;
+int32_t ret = x || y;
+int32_t ret = !x;
+
+// 単項演算子
+int32_t ret = +x;
+int32_t ret = -x;
+
+// 右シフト演算子
+int32_t ret = x &lt;&lt; y;
+
+// 左シフト演算子
+int32_t ret = x &gt;&gt; y;
+
+# 代入演算子
+int32_t $ret = $x;
+int32_t $ret += $x;
+int32_t $ret -= $x;
+int32_t $ret *= $x;
+int32_t $ret /= $x;
+int32_t $ret %= $x;
+int32_t $ret &gt;&gt;= $x;
+int32_t $ret &lt;&lt;= $x;
+
+// アロー演算子
+int32_t ret = foo-&gt;x;
+</pre>
+<h4>Perlの演算子とC言語の演算子の比較</h4>
+<p>
+  Perlの演算子の数値演算子、数値の比較演算子、単項演算子、論理演算子、シフト演算子、インクリメント/デクリメント、代入演算子は、C言語と機能が同じです。
+</p>
+<p>
+  代入演算子は、式を返すという点でもC言語と同じです。代入文ではなく、代入式として評価されます。
+</p>
+<p>
+  Perlのアロー演算子は、参照を通してフィールドにアクセスできるという点がC言語と似ています。
+</p>
+<p>
+  アクセッサと呼ばれる、フィールドにアクセスするための、メソッドを定義してやると、Perlのフィールドアクセスと、C言語のフィールドアクセスは、値を取得する場合は、見た目が同じになります。
+</p>
+<h4>Perlの演算子の優先順位</h4>
+<p>
+  Perlの演算子の優先順位です。高い方から書き出しています。
+</p>
+<pre>
+左結合      -&gt;
+非結合      ++ --
+右結合      ! 単項の+ 単項の-
+左結合      * / % x
+左結合      + -
+左結合      &lt;&lt; &gt;&gt;
+非結合      &lt; &gt; &lt;= &gt;=
+非結合      == !=
+左結合      &&
+左結合      ||
+右結合      = += -= *= などの代入演算子
+</pre>
+<h4>C言語の演算子の優先順位</h4>
+<p>
+  C言語の演算子の優先順位です。高い方から書き出しています。
+</p>
+<pre>
+左結合	++ -- -&gt;
+右結合	! 単項+ 単項- ++ --
+左結合	* / %
+左結合	+ -
+左結合 &lt;&lt; &gt;&gt;
+左結合&lt; &lt;= &gt; &gt;=
+左結合 == !=
+左結合 &&
+左結合 ||
+右結合 = += -= *= /= %= &lt;&lt;= &gt;&gt;= などの代入演算子
+</pre>
+<h4>Perlの演算子の優先順位とC言語の演算子の優先順位の比較</h4>
+<p>
+  Perlの演算子の優先順位とC言語の演算子の優先順位の比較してみましょう。Perlでは、アロー演算子がインクリメント/デクリメント演算子より優先順位が高いことを除いて、C言語と同一です。
+</p>
+<p>
+  Perlでは、C言語で覚えた、演算子の優先順位をほぼそのまま使うことができます。
+</p>
+<p>
+  ある人たちは、バグが生まれやすいなど、C言語の演算子や演算子の優先順位に対して、事実を踏まえない、過剰な批判をします。
+</p>
+<p>
+  一方で、Perlは、C言語の演算子の優先順を、そのまま受け入れています。
+</p>
+<p>
+  これは、C言語を学んだことのあるユーザーが、混乱せずに、その知識をそのまま使えるように、Perlでは、配慮されているということです。
+</p>
+<p>
+  C言語は入門教材で、必ず出てくるといってもよいプログラミング言語です。Perlは、C言語に見慣れたユーザーが、混乱しないで、すぐに使い始められるようになっています。
+</p>
+<h3>PerlとC言語の他の類似点</h3>
+<p>
+  この記事では、Perlのwhile文がC言語のwhile文と似ているということを書きましたが、Perlのif文、for文、インクリメント/デクリメント、演算子の優先順位もC言語の文法と似ています。
+</p>
+<ul>
+  <li><a href="/blog/20190926072429.html">Perlのif文はC言語のif文に似ている</a></li>
+  <li><a href="/blog/20190925080555.html">Perlのfor文は、C言語のfor文と、同一の文法</a></li>
+  <li><a href="/blog/20191001073128.html">Perlのwhile文は、C言語のwhile文と、同一の文法</a></li>
+  <li><a href="/blog/20190920082045.html">Perlのインクリメント/デクリメントの動作はC言語と同じ</a></li>
+</ul>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
