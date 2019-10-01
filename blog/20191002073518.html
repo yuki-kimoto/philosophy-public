@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlは単独のスコープがC言語と同じように使える - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlは単独のスコープがC言語と同じように使えます。単独のスコープというのは、if文やfor文やwhile文と組み合わせて存在するスコープではなく、単独で定義できるスコープで、変数にスコープを与えることができるものをいいます。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20191002073518.html">Perlは単独のスコープがC言語と同じように使える</a></h2>
+<p>
+  Perlは単独のスコープがC言語と同じように使えます。単独のスコープというのは、if文やfor文やwhile文と組み合わせて存在するスコープではなく、単独で定義できるスコープで、変数にスコープを与えることができるものをいいます。
+</p>
+<h3>Perlの単独のスコープ</h3>
+<p>
+  Perlの単独のスコープです。
+</p>
+<pre>
+{
+  my $foo = 1;
+}
+</pre>
+<h3>C言語の単独のスコープ</h3>
+<p>
+  C言語の単独のスコープです。
+</p>
+<pre>
+{
+  int32_t foo = 1;
+}
+</pre>
+<h3>Perlの単独のスコープとC言語の単独のスコープの比較</h3>
+<p>
+  Perlの単独のスコープとC言語の単独のスコープの比較してみましょう。「{}」という記号で、スコープを作ることができます。
+</p>
+<h3>単独のスコープの活用法</h3>
+<p>
+  単独のスコープは、そのスコープの中だけで、有効な変数を宣言することができるので、以下のような書き方ができて、便利です。入れ子にすることもできます。
+</p>
+<pre>
+{
+  my $foo = 5;
+  
+  {
+    my $foo = 1;
+  }
+  
+  {
+    my $foo = 2;
+  }
+  
+  {
+    my $foo = 3;
+  }
+}
+</pre>
+<p>
+  Perlの場合は、リファレンスカウント式のGCなので、スコープの終わりで、変数を解放してくれるという効果もあります。
+</p>
+<p>
+  単独のスコープは、試験を書くときに非常に効果を発揮します。試験は、ほとんど同じことを、少しづつ変えて、何回も記述する作業だからです。サブルーチンを定義しないで、新しいスコープを記述できるというのは、とても便利なのです。
+</p>
+<pre>
+# テスト1
+{
+  my $baz = "abc";
+  
+  # テスト1 - サブテスト1
+  {
+    my $foo = 1;
+    
+    # ごにょ
+    
+    is($foo, 5);
+  }
+
+  # テスト1 - サブテスト2
+  {
+    my $foo = 3;
+    
+    # ごにょ
+    
+    is($foo, 10);
+  }
+
+  # テスト1 - サブテスト3
+  {
+    my $foo = 10;
+    
+    # ごにょ
+    
+    is($foo, -5);
+  }
+}
+
+# テスト2
+{
+  my $baz = "def";
+
+  # テスト2 - サブテスト1
+  {
+    my $bar = 2;
+    
+    # ごにょ
+    
+    is($bar, 3);
+  }
+
+  # テスト2 - サブテスト2
+  {
+    my $bar = 3;
+    
+    # ごにょ
+    
+    is($bar, 45);
+  }
+
+  # テスト2 - サブテスト3
+  {
+    my $bar = 20;
+    
+    # ごにょ
+    
+    is($bar, -19);
+  }
+}
+</pre>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
