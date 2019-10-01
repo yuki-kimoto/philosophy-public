@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlのリファレンスの機能は、C言語のポインタの機能と似ている - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlには、リファレンスと呼ばれる値の参照を取得できる機能がありますが、これはC言語のポインタの機能と同じものです。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20191002075550.html">Perlのリファレンスの機能は、C言語のポインタの機能と似ている</a></h2>
+<p>
+  Perlには、リファレンスと呼ばれる値の参照を取得できる機能がありますが、これはC言語のポインタの機能と同じものです。
+</p>
+<h4>Perlのリファレンス</h4>
+<p>
+  Perlの値のリファレンスは「\」で取得できます。
+</p>
+<pre>
+my $num = 1;
+my $num_ref = \$num;
+</pre>
+<h4>C言語のポインタ</h4>
+<p>
+  C言語では、値のアドレスを「&」で取得し、ポインタ型の変数に代入できます。
+</p>
+<pre>
+int32_t num = 1;
+int32_t* num_ptr = &amp;num;
+</pre>
+<h4>PerlのリファレンスとC言語のポインタの比較</h4>
+<p>
+  記号が「\」であるか「&」であるかを除いては、PerlとC言語は同じことをしています。Perlの場合はリファレンスを取得すると書いていますが、実際にはアドレスの値を取得しているだけです。C言語ではアドレス演算ができますが、Perlのリファレンスは、C言語における、アドレス演算ができないアドレス値だと考えてください。
+</p>
+<p>
+  C言語の場合は、ポインタ変数に代入していますが、Perlの場合は、型が動的なので、変数にそのまま代入できます。
+</p>
+<h3>C言語で覚えたポインタの概念がPerlでもそのまま使える</h3>
+<p>
+  大学のソフトウェアの授業で、頑張って覚えたC言語のポインタの概念を、Perlでもそのまま活用することができます。
+</p>
+<p>
+  また、Perlからプログラミングを始めた方は、C言語のポインタに該当する機能を、Perlを使って、理解することができます。
+</p>
+<p>
+  PerlはC言語と同じく、<a href="/blog/20190919070918.html">値と参照を明確に区別する言語</a>です。
+</p>
+<p>
+  「値と参照の区別は隠してしまったほうがユーザーは使いやすい」という意見も一方にありますが、値と参照を区別することは、ソフトウェアのデータに関する非常に基礎的な考え方なので、区別ができるということは、メリットでもあるのです。
+</p>
+<p>
+  C言語より低レベルなアセンブラや機械語といった分野では、値と参照(アドレス)をしっかり区別できることが、エンジニアとしての基礎知識として求められるからです。
+</p>
+<p>
+  この違いを言語の個性として、とらえてみるのはいかがでしょうか?
+</p>
+<h3>PerlとC言語の他の類似点</h3>
+<p>
+  この記事では、PerlのリファレンスがC言語のポインタと似ているということを書きましたが、Perlのif文、for文、while文、インクリメント/デクリメント、演算子の優先順位、スコープ、参照概念も、C言語の文法と似ています。
+</p>
+<ul>
+  <li><a href="/blog/20190926072429.html">Perlのif文はC言語のif文に似ている</a></li>
+  <li><a href="/blog/20191001073128.html">Perlのwhile文は、C言語のwhile文と、同一の文法</a></li>
+  <li><a href="/blog/20190920082045.html">Perlのインクリメント/デクリメントの動作はC言語と同じ</a></li>
+  <li><a href="/blog/20191001075312.html">Perlの演算子とC言語の演算子は、種類が似ていて、優先順位が同じ</a></li>
+  <li><a href="/blog/20191002073518.html">Perlは単独のスコープがC言語と同じように使える</a></li>
+</ul>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
