@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>PerlのgrepはUnix/Linuxコマンドのgrepから着想を得ている - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlにはgrepと呼ばれる関数がありますが、これは、PerlのgrepはUnix/Linuxコマンドのgrepから着想を得ています。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20191003071444.html">PerlのgrepはUnix/Linuxコマンドのgrepから着想を得ている</a></h2>
+<p>
+  Perlにはgrepと呼ばれる関数がありますが、これは、PerlのgrepはUnix/Linuxコマンドのgrepから着想を得ています。
+</p>
+<h4>Unix/Linuxコマンドのgrep</h4>
+<p>
+  Unix/Linuxコマンドのgrepの基本的な機能は、ファイルの中にある文字列を検索して、該当する行があれば、それを取り出して表示するというものです。
+</p>
+<pre>
+grep ケーキ food.txt
+</pre>
+<p>
+  footd.txtの中に、ケーキが含まれる行があれば、それが、表示されます。
+</p>
+<h4>Perlのgrep関数</h4>
+<p>
+  Perlのgrep関数は、Unix/Linuxコマンドのgrepから着想を得ています。
+</p>
+<p>
+  Perlのgrep関数の機能は、配列の要素で、条件に該当する要素があれば、それだけ取り出すというものです。
+</p>
+<p>
+  grepコマンドの対象が、ファイルの各行であるのに対して、Perlのgrep関数は、配列の各要素となっています。
+</p>
+<p>
+  grep関数のサンプルを書いてみます。偶数だけを取り出すサンプルです。
+</p>
+<pre>
+# grep関数で偶数のみ取り出す
+my @nums = (1, 2, 3, 4);
+my @even_nums = grep { $_ % 2 == 0 } @nums;
+</pre>
+<p>
+  配列の各要素は、デフォルト変数「$_」に入ってきます。そして、偶数という条件にマッチしたものだけが、取り出された新しい配列が返されます。
+</p>
+<p>
+  Perlのgrep関数は、Unix/Linuxのgrepコマンドと、とても近い感覚で利用できます。
+</p>
+<h3>Perlの正規表現をgrepコマンドでも使える</h3>
+<p>
+  Perlの正規表現は、よくある問題を簡単に解決できる機能を実装した、実用的な正規表現です。
+</p>
+<p>
+  実験的ではありますが、最近のLinuxでは「-P」オプションを使うと、Perlの正規表現をgrepコマンドでも使うことができます。
+</p>
+<pre>
+grep -P '(\.txt|\.html)$' food.txt
+</pre>
+<p>
+  Perlで活用され、広く利用されるようになった、Perlの正規表現をgrepコマンド側でも使うことができます。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
