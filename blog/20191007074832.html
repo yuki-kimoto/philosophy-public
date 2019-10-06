@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlの文字列比較演算子、eq,ne,gt,ge,lt,lは、シェルスクリプトの数値比較演算子が由来 - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlには、文字列比較演算子としてeq,ne,gt,ge,lt,leというキーワードがありますが、これはシェルスクリプト(sh,bash,csh,zsh,ksh)の数値比較演算子が由来です。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20191007074832.html">Perlの文字列比較演算子、eq,ne,gt,ge,lt,lは、シェルスクリプトの数値比較演算子が由来</a></h3>
+<p>
+  Perlには、文字列比較演算子としてeq,ne,gt,ge,lt,leというキーワードがありますが、これはシェルスクリプト(sh,bash,csh,zsh,ksh)の数値比較演算子が由来です。
+</p>
+<h3>Perlの文字列比較演算子</h3>
+<p>
+  Perlの文字列比較演算子です。文字列を辞書順で比較します。
+</p>
+<pre>
+# Perlの文字列比較演算子
+$str1 eq $str2
+$str1 ne $str2
+$str1 gt $str2
+$str1 ge $str2
+$str1 lt $str2
+$str1 le $str2
+</pre>
+<h3>シェルスクリプトの数値比較演算子</h3>
+<p>
+  シェルスクリプトの数値比較演算子です。
+</p>
+<pre>
+# シェルスクリプトの数値比較演算子
+[$num1 -eq $num2]
+[$num1 -ne $num2]
+[$num1 -gt $num2]
+[$num1 -ge $num2]
+[$num1 -lt $num2]
+[$num1 -le $num2]
+</pre>
+<h3>Perlとシェルスクリプトのeq,ne,gt,ge,lt,leの比較</h3>
+<p>
+  Perlの文字列比較演算子eq,ne,gt,ge,lt,leとシェルスクリプトのeq,ne,gt,ge,lt,leの比較してみましょう。キーワード名は、シェルスクリプトと同じものを使っているというところは同じですが、ずいぶん違います。
+</p>
+<p>
+  Perlの場合は、文字列比較を行っているのに対して、シェルの場合は数値比較を行っていますね。シェルクリプトの場合は演算子の前に「-」が必要なのと、比較演算子を「[]」で囲む必要があります。Perlの場合は、必要がありません。
+</p>
+<p>
+  Perlの場合は<a href="/blog/20191001075312.html">数値比較演算子はC言語と同じ</a>でした。C言語は数値計算などの処理スピードが求められる分野で活躍していますが、Perlは、ここから数値比較演算子を借用しています。
+</p>
+<p>
+  一方、文字列比較演算子には、シェルスクリプトにおける数値比較演算子を借用しました。eq,ne,gt,ge,lt,leという演算子は記号ではなく文字なので、文字列を比較する場合に連想しやすいというのがひとつの理由としてあります。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
