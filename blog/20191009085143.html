@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlでトップレベルに文が書けるのはシェルスクリプトと同じ - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlでトップレベルに文が書けるのはシェルスクリプトと同じです。シェルスクリプトは、もともとCUIでインタラクティブに対話をするシェルのコマンドから始まって、バッチ処理を記述するために生まれました。そのため、いきなり文を書くことができます。このアイデアをPerlも採用しました。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20191009085143.html">Perlでトップレベルに文が書けるのはシェルスクリプトと同じ</a></h2>
+<p>
+  Perlでトップレベルに文が書けるのはシェルスクリプトと同じです。シェルスクリプトは、もともとCUIでインタラクティブに対話をするシェルのコマンドから始まって、バッチ処理を記述するために生まれました。そのため、いきなり文を書くことができます。このアイデアをPerlも採用しました。
+</p>
+<p>
+  いきなり文が書けるというのは、スクリプト言語の特徴で、関数定義を行う必要がありません。関数の定義の仕方を知らなくても、関数の使い方だけ覚えれば、すぐにプログラムを書けるというのが、スクリプト言語の良いところですね。
+</p>
+<h4>Perlは文をトップレベルで書ける</h4>
+<p>
+  Perlは文をトップレベルで書けます。
+</p>
+<pre>
+print "Hello, World!\n";
+</pre>
+<h4>シェルスクリプトはトップレベルで文を書ける</h4>
+<p>
+  シェルスクリプトは文をトップレベルで書けます。
+</p>
+<pre>
+echo "Hello, World\n"
+</pre>
+<h3>Perlがシェルスクリプトを参考にした、トップレベルに文が書けることの意義とは</h3>
+<p>
+  Perlは、いくつかのプログラミング言語の文法を参考にしていますが、トップレベルにいきなり文が書けるという部分は、シェルスクリプトの文法を採用しました。
+</p>
+<p>
+  C言語の場合は、トップレベルが、関数定義です。これは、構文解析の観点から見た場合は、トップレベルと、その下のレベルで、構造が同じなのできれいです。
+</p>
+<pre>
+main(int argc, char *argv[]){
+  
+}
+</pre>
+<p>
+  Perlとシェルと同じく、トップレベルに、文が書けます。これは、実際は関数なのですが、自動的に関数にしてくれているのです。つまり、これは、人が手軽にプログラムを書き始めるためのシンタックスシュガーなのです。
+</p>
+<pre>
+print "Hello, World!\n";
+</pre>
+<p>
+  内部では、たとえば、以下のように補われています。(実際の実装ではなく、あくまでイメージです)
+</p>
+<pre>
+sub main {
+  print "Hello, World!\n";
+}
+main();
+</pre>
+<p>
+  プログラムを書き始めるときに、ただ単に、すぐ書けるというだけなのですが、これが、すぐにちょっと書きたい。ワンライナーを書きたいという場合に、とても便利なのです。
+</p>
+<p>
+  Perlは手軽さという点で、先輩である、シェルスクリプトをこの点で、参考にしたのですね。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
