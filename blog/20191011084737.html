@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlがコンパイル作業なしすぐに実行できるのはシェルスクリプトと同じ - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlが、コンパイル作業なしすぐに実行できるのはシェルスクリプト(sh,bash,csh,ksh,zsh)と同じです。スクリプト言語と呼ばれる言語のひとつの特徴は、コンパイル作業なしで、すぐに実行できるというのが上げらます。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20191011084737.html">Perlがコンパイル作業なしすぐに実行できるのはシェルスクリプトと同じ</a></h2>
+<p>
+  Perlが、コンパイル作業なしすぐに実行できるのはシェルスクリプト(sh,bash,csh,ksh,zsh)と同じです。スクリプト言語と呼ばれる言語のひとつの特徴は、コンパイル作業なしで、すぐに実行できるというのが上げらます。
+</p>
+<p>
+  プログラムを書く、すぐに実行というサイクルをとれるので、プログラム作成の生産効率が高いです。
+</p>
+<h4>Perlにおけるプログラムの実行</h4>
+<p>
+  Perlにおけるプログラムの実行です。
+</p>
+<pre>
+perl script.pl
+</pre>
+<h4>シェルスクリプトにおけるプログラムの実行</h4>
+<p>
+  シェルスクリプトにおけるプログラムの実行。
+</p>
+<pre>
+sh script.sh
+</pre>
+<p>
+  シェルスクリプトでは、シェバンを書くことも多いですが、実質的にはシェルを実行するコマンドでプログラムを実行しています。
+</p>
+<h3>すぐにプログラムを実行することができるということの意義はなんですか?</h3>
+<p>
+  プログラムを書いたときに、すぐにプログラムを実行することができるということの意義はなんでしょうか。一番の利点は、プログラムを書いて実行して確認というサイクルを数多くこなせるということです。
+</p>
+<p>
+  書く、実行、確認。書く、実行、確認。書く、実行、確認。実際のシステム開発では、このサイクルを何千回、何万回と繰り返します。
+</p>
+<p>
+  このサイクルを素早く繰り返せるので、プログラム開発の生産効率が高いのです。
+</p>
+<p>
+  Perlがすぐに実行できるという機能は、シェルスクリプトがすぐに実行できるということを参考にして作られています。
+</p>
+<p>
+  Perlは現代的なスクリプト言語の元祖ですが、すぐに実行できるという部分は、シェルスクリプトの機能を参考にして作られています。
+</p>
+<p>
+  Perlは、内部的には、構文木にコンパイルされてから実行されるのですが、perlコマンドは、構文木へのコンパイルと実行という処理を一度に実行するように設計されています。
+</p>
+<p>
+  この点では、シェルスクリプトが、1行づつ実行をしていくのとは、対照的です。
+</p>
+<p>
+  Perlは、プログラム全体に対して、文法をチェックし、文法エラーがあった場合は、コンパイルエラーになります。
+</p>
+<p>
+  コンパイルされた情報は、ファイルには出力されず、メモリ上だけに存在しています。メモリ上で、コンパイルと実行という一連の流れを行うので、まるで、コンパイルなしで、実行されているように見えるのですね。コンパイル作業は一瞬で終わり、すぐに実行されます。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
