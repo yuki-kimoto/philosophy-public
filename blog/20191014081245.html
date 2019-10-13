@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlがどういう意味でLispに皮を被せたものなのか - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlの作者のラリー・ウォールは「動的言語はLispに皮を被せたもの」といいましたが、いったいこれはどういう意味なのでしょうか?">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20191014081245.html">Perlがどういう意味でLispに皮を被せたものなのか</a></h2>
+<p>
+  Perlの作者のラリー・ウォールは「動的言語はLispに皮を被せたもの」といいましたが、いったいこれはどういう意味なのでしょうか?
+</p>
+<p>
+  PerlはLispは、表面的には、まったく違うもののように見えます。
+</p>
+<h4>Perlの文法</h4>
+<p>
+  Perlの足し算の文法を書きます。
+</p>
+<pre>
+# Perlの足し算
+my $out1 = $x + $y
+my $out2 = $out1 + 5;
+</pre>
+<h4>Lispの文法</h4>
+<p>
+  Lispの足し算の文法。
+</p>
+<pre>
+; Lispの足し算
+(+ (+ x y) 5)
+</pre>
+<h3>Perlがどういう意味でLispに皮を被せたものなのか</h3>
+<p>
+  Perlがどういう意味でLispに皮を被せたものなのか、比較してみます。
+</p>
+<h4>演算子を真ん中に置くのは人間の都合</h4>
+<p>
+  Perlにはかっこがなく、「+」記号は真ん中に来ています。それに対して、Lispには、かっこがありますね。そして「+」記号が先頭に来ていますね。
+</p>
+<p>
+  Lispの場合は、関数呼び出しも、演算子も先頭に来ます。つまり、命令と呼ばれるものは、常に先頭に来るのです。
+</p>
+<p>
+  実は、「+」記号を真ん中に置くというのは、人間が数学の記法を書くときに、真ん中に書くということが、慣習的に行われているので、見やすいということなのです。
+</p>
+<p>
+  コンピューターの側から見ると、関数呼び出し命令や加算命令というのは、先頭に来るのが自然です。実際、機械語やアセンブラでは、先頭に来るからです。
+</p>
+<p>
+  「+」が真ん中に来るというのは、人間の立場から見た場合の、シンタックスシュガーなのですね。
+</p>
+<h4>Lispは構文木自体を実行する</h4>
+<p>
+  またリスプはかっこのネストになっていますが、これは実際には、構文木自体をを表現しています。
+</p>
+<p>
+  「(+ x y)」というのは、最初の「+」演算の左側のノードとして存在しているのです。そして、最も左下に属するノードから順次実行されていきます。
+</p>
+<p>
+  これは、ちょうどPerlが、コンパイルされて抽象構文木になった後に、最も左下のノードから順次実行されていくということと対応しています。
+</p>
+<p>
+  つまり、Perlは、構文木にコンパイルされると、Lispと同じ構造になります。
+</p>
+<h4>Lispは、リストと命令が存在するだけで、プログラムが動くことを証明した</h4>
+<p>
+  Lispの偉大さは、リストと命令が存在するだけで、プログラムが動くことを証明したとうことです。リストは、動的なデータ構造で、pushとpopを行うことができます。
+</p>
+<p>
+  動的なデータ構造と、命令が存在するとプログラムが動く。おっと、これは、まさにPerlではないですか。
+</p>
+<pre>
+# 関数命令
+sub foo {
+  # 動的なリスト
+  my ($num1, $num2, $num3) = @_;
+}
+</pre>
+<p>
+  PerlとLispは、表面的な見た目は、まったく異なりますが、Perlは、人間が使いやすい用にLispに皮を被せたものだったのです。
+</p>
+<p>
+  あらゆる動的言語は、この意味でLispから恩恵を受けているといって過言ではないでしょう。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
