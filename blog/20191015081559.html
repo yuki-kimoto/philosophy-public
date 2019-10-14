@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlは中学一年生の英語がわかれば読める - 自然言語の採用 - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlには、myやuseといったPerlは中学一年生の英語がわかれば読める言葉で記述されます。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20191015081559.html">Perlは中学一年生の英語がわかれば読める - 自然言語の採用</a></h2>
+<p>
+  Perlには、myやuseといったPerlは中学一年生の英語がわかれば読める言葉で記述されます。
+</p>
+<p>
+  Perlの作者ラリー・ウォールは、ソフトウェアの研究者や技術者ではなく、実は言語学者です。
+</p>
+<p>
+  Perlは、言語学者によって作られたプログラミング言語で、自然言語をプログラミング言語に取り入れています。
+</p>
+<h3>自然言語を取り入れて、ノンプラグラマーも使えるように</h3>
+<p>
+  Perlは、自然言語を取り入れることで、ノンプログラマーにも、プログラミングの敷居が低くなるようにという配慮があります。
+</p>
+<p>
+  小学校や中学校でプログラミングを学び始めるとき、書かれている言葉は、英語です。
+</p>
+<p>
+  ただでさえ、英語が苦手なのに、大学で学ぶような知らない言葉がたくさん。そうなると、さらにプログラミングに苦手意識を感じてしまいます。
+</p>
+<p>
+  Perlというプログラミング言語は、中学1年生の英語力で読めるように、キーワードが選択されています。
+</p>
+<pre>
+# 机を使う
+use Desk;
+
+# 私の果物
+my $fruit = 'Apple';
+
+# 私たちの家
+our $HOME = '/home/kimoto';
+
+# 「こんにちは」をプリントする
+print "Hello World";
+</pre>
+<p>
+  距離を置いていたプログラミング言語に、親しみを感じることができますね。
+</p>
+<h3>あなたが紙に書いた計算が、そのまま動く</h3>
+<p>
+  Perlは、動的な型を採用しているプログラミング言語で、あなたが紙に書いた計算が、そのまま動きます。
+</p>
+<pre>
+my $total = 1 + 3;
+</pre>
+<p>
+  もちろんこれは、他の言語でもそのまま動きますよ。
+</p>
+<p>
+  でもPerlはさらに一歩進めて、紙に書いたもの、つまりテキストに書いたものがそのまま動きます。
+</p>
+<p>
+  プログラムに1と3を、渡してみましょう。以下のように書きます。
+</p>
+<pre>
+perl total.pl 1 3
+</pre>
+<p>
+  Perlを使って、1と3を合計すると読めますね。
+</p>
+<p>
+  テキストの数字を受け取って、型変換なしで、そのまま計算できます。
+</p>
+<pre>
+my ($num1, $num2) = @ARGV;
+
+my $total = $num1 + $num2;
+</pre>
+<h3>Perlは、日常世界で自然言語を使う人にとっても使いやすい用に設計された</h3>
+<p>
+  Perlは、私たちが親しんでいる言葉や、ペンを使って紙に計算を書くといったような日常の表現を、プログラミング言語に取り入れようとした、初めての言語です。
+</p>
+<p>
+  これは、Perlの作者ラリー・ウォールが言語学者であったということに、起因しています。
+</p>
+<p>
+  もし、ソフトウェア研究者であれば、ソフトウェア研究者の言葉で、プログラミング言語を設計したことでしょう。
+</p>
+<p>
+  Perlは「日常世界で自然言語を使う人にとっても使いやすい用に設計された」という点が、初めてプログラミングを学ぶ人に、Perlをお勧めできる理由のひとつです。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
