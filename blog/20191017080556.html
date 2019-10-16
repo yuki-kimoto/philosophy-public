@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlのワンライナーは、awkのワンライナーの機能を参考にしたもの - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlのワンライナーは、awkのワンライナーの機能を参考にしたものです。awkは行指向のツールで、デフォルトは、各行に対して処理するようになっています。Perlプログラミングは、行指向ではありませんが、Perlのコマンドラインオプションを使用することによって、awkの行指向のワンライナーを表現することができます。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20191017080556.html">Perlのワンライナーは、awkのワンライナーの機能を参考にしたもの</a></h2>
+<p>
+  Perlのワンライナーは、awkのワンライナーの機能を参考にしたものです。awkは行指向のツールで、デフォルトは、各行に対して処理するようになっています。Perlプログラミングは、行指向ではありませんが、Perlのコマンドラインオプションを使用することによって、awkの行指向のワンライナーを表現することができます。
+</p>
+<p>
+  ワンライナーを試すために、複数行のファイル「text.txt」を用意しますね。
+</p>
+<pre>
+abcd
+ppp
+abcppp
+</pre>
+<h4>Perlのワンライナーの表現</h4>
+<p>
+  Perlのワンライナーの表現です。先頭がabcの行をprintしています。各行はデフォルト引数「$_」に代入されています。
+</p>
+<pre>
+cat text.txt | perl -n -e 'if ($_ =~ /^abc/) { print $_ }'
+</pre>
+<p>
+  -eは、executeのeです。引数で与えられた、Perlプログラムを実行できます。-nはlineのnです。awkと同じように、行指向で、処理をすることができます。
+</p>
+<p>
+  デフォルト引数を省略して、もう少し短く書くこともできます。
+</p>
+<pre>
+cat text.txt | perl -n -e 'if (/^abc/) { print }'
+</pre>
+<h4>awkのワンライナーの表現</h4>
+<p>
+  awkのワンライナーの表現です。先頭がabcの行を出力しています。Perlでは「$_」となっているところが「$1」となっています。
+</p>
+<pre>
+cat text.txt | awk '{ if ($1 ~ /^abc/) { print $1 } }'
+</pre>
+<p>
+  「$1」を省略して、もう少し短くこともできます。
+</p>
+<pre>
+cat text.txt | awk '{ if (/^abc/) { print } }'
+</pre>
+<p>
+  あら不思議、コマンドラインオプションと「{}」を除いて、Perlとまったく同じになりました。
+</p>
+<h3>Perlは、Unix/Linux利用者が、段階的に複雑なことに対応することを想定している</h3>
+<p>
+  Perlは、汎用的なプログラミング言語ですが、ノンプログラマーがgrep,sed,awkなどのツールを使って作業をしているときに、ある複雑性を超えたタイミングで、汎用的なプログラムが必要になるということを想定しています。
+</p>
+<p>
+  Unix/Linuxのツールの利用者が、そう感じたときに、Linux/Unixコマンドから、自然に汎用的なプログラミングにシステムを成長させることができる段階的な経路を、Perlは提供しているのです。
+</p>
+<p>
+  Perlは、Unix/Linuxミドルウェアのツールボックスの中のひとつのツールとして存在していて、ユーザーが必要になったときに、使えるようになっています。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
