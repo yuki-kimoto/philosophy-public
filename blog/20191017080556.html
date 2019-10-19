@@ -57,13 +57,13 @@ cat text.txt | perl -n -e 'if (/^abc/) { print }'
 </pre>
 <h4>awkのワンライナーの表現</h4>
 <p>
-  awkのワンライナーの表現です。先頭がabcの行を出力しています。Perlでは「$_」となっているところが「$1」となっています。
+  awkのワンライナーの表現です。先頭がabcの行を出力しています。Perlでは「$_」となっているところが「$0」となっています。
 </p>
 <pre>
-cat text.txt | awk '{ if ($1 ~ /^abc/) { print $1 } }'
+cat text.txt | awk '{ if ($0 ~ /^abc/) { print $0 } }'
 </pre>
 <p>
-  「$1」を省略して、もう少し短くこともできます。
+  「$0」を省略して、もう少し短くこともできます。
 </p>
 <pre>
 cat text.txt | awk '{ if (/^abc/) { print } }'
