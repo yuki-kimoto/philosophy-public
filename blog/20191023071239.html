@@ -109,6 +109,17 @@
   <li><a href="https://tutorial.perlzemi.com/blog/20110220130464.html">perlbrew</a></li>
   <li><a href="https://tutorial.perlzemi.com/blog/20180816153437.html">plenv</a></li>
 </ul>
+<h3>CPANモジュールインストール</h3>
+<p>
+  開発環境や本番環境へのCPANモジュールのインストールは、必要なモジュールをcpanfileに定義して、cpanmというコマンドを使うと、自動的に配置できます。
+</p>
+<ul>
+  <li>cpanm</li>
+  <li>cpanfile</li>
+</ul>
+<p>
+  perlbrewやplenvのオプションとしてcpanmをインストールするコマンドが存在するので、それを利用するのが簡単です。
+</p>
 <h3>本番環境</h3>
 <p>
   本番環境は、クラウドサービスかVPSサービスを借りて、配置することになります。
@@ -173,6 +184,23 @@
 </p>
 <p>
   PostgreSQLに接続するためにはDBIとDBD::Pgが必要です。
+</p>
+<h3>データベースへの接続管理とO/Rマッパー</h3>
+<p>
+  データベースへの接続は、接続管理維持や、joinを簡単に使いたいなどの要望がでてきますね。そういう場合のために、いくつかのO/Rマッパーを紹介しておきましょう。五十音順です。
+</p>
+<ul>
+  <li>Aniki</li>
+  <li>DBIx::Class</li>
+  <li>DBIx::Connector</li>
+  <li>DBIx::Custom</li>
+  <li>DBIx::Handler</li>
+  <li>DBIx::Simple</li>
+  <li>SQL::Maker</li>
+  <li>Teng</li>
+</ul>
+<p>
+  DBIx::ConnectorとDBIx::Handlerは接続管理だけをやってくれるモジュールです。それ以外は、さらに、接続管理モジュールをラッピングしていて、O/Rマッパー機能を提供します。SQLのように使える抽象度の低いものから、データベースアクセスをメソッドにして抽象度の高いものまでがそろっています。
 </p>
 <h3>リモート環境への接続</h3>
 <p>
