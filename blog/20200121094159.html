@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>関数(サブルーチン)の引数を追加できるという動的型言語の利点 - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlを始めとする動的型言語の関数(サブルーチン)の引数の個数は動的であり、サブルーチンの実装をした後でも、引数を追加することができます。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20200121094159.html">関数(サブルーチン)の引数を追加できるという動的型言語の利点</a></h2>
+<p>
+  Perlを始めとする動的型言語の関数(サブルーチン)の引数の個数は動的であり、サブルーチンの実装をした後でも、引数を追加することができます。
+</p>
+<p>
+  これは、サブルーチンの定義が修正されても、元の関数呼び出しを修正する必要がないということを意味します。
+</p>
+<pre>
+# 最初は一つの引数
+sub func {
+  my ($arg) = @_;
+}
+
+# 呼び出し
+func(1);
+</pre>
+<p>
+  ここで、このサブルーチンにオプションが必要になったとしましょう。この場合、元の呼び出し個所を修正する必要がありません。
+</p>
+<pre>
+# オプションを追加
+sub func {
+  my ($arg, $opt) = @_;
+  
+  $opt ||= {};
+}
+
+# 元の呼び出しは、修正しなくてよい
+func(1);
+
+# オプション付き呼び出し
+func(1, {foo =&gt; 4});
+</pre>
+<h3>静的型言語で実現するにはどのような手法が考えられますか?</h3>
+<p>
+  たとえば、JavaやC++のオーバーロード機能を使えば、元の呼び出しを壊すことなく、同じ名前で、引数の個数を変えて、新しいメソッドを定義できます。
+</p>
+<p>
+  ただし、この場合は、メソッドを新しく定義したので、メソッド定義の個数が増えます。
+</p>
+<p>
+  元のメソッド自体の引数を増やしたのではないことに注意してください。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a rel="nofollow" href="http://www.perlzemi.com">Perlゼミのプログラミングスクールはこちら</a> & <a rel="nofollow" href="https://jp.giblog.net/">このサイトはGiblogで製作されています</a>
+
+      </div>
+    </div>
+  </body>
+</html>
