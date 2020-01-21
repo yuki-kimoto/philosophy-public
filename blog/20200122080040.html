@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>WindowsでPerlを使うべきではないというのは本当ですか? - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="「WindowsでPerlを使うべきではないというのは本当ですか?」">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20200122080040.html">WindowsでPerlを使うべきではないというのは本当ですか?</a></h2>
+<p>
+  「WindowsでPerlを使うべきではないというのは本当ですか?」
+</p>
+<p>
+  この質問に答えてみましょう。
+</p>
+<h3>PerlはWindowsをサポートしている</h3>
+<p>
+  まず前提知識として、PerlコアはWindowsをサポートしています。
+</p>
+<p>
+  PerlはC言語で書かれていますが、ソースコードを見ると、Windows用のポーティングがあります。
+</p>
+<h3>Windows用のディストリビューションが</h3>
+<p>
+  Perlには、Windows用のディストリビューションとして、Active Perl(アクティブパール)とStrawberry Perl(ストロベリーパール)があります。
+</p>
+<p>
+  ディストリビューションというのは、PerlをWindowsでインストールを簡単にして、使いやすくしたものだと考えてください。
+</p>
+<p>
+  Active PerlもStrawberry Perlも、最新版のPerlがリリースすると、その少し後に、リリースされています。
+</p>
+<h3>どうしてWindowsでPerlを使うべきではないという人がいるのか</h3>
+<p>
+  Perlは、Windowsで正しく動き、ディストリビューションも最新版が存在するのに、WindowsでPerlを使うべきではないといった人がいるのはなぜなのでしょう?
+</p>
+<p>
+  それは、日本語の問題です。Windowsでは、日本語が扱いにくいという批判です。
+</p>
+<p>
+  結論を先に書くと、Perlは、Windowsで日本語を正しく扱えますし、正しい作法を覚えれば、不自由することはありません。
+</p>
+<p>
+  でも、そういう批判がでたということは、Perlの日本語処理は、確かに、歴史的に、混乱した時期があったのです。
+</p>
+<h3>Perlの日本語処理の混乱とは何か</h3>
+<p>
+  Webを検索すると、Perlには、さまざまな日本語処理のやり方がでてきます。
+</p>
+<p>
+  jcode.pl、JCode.pm、Encode、encoding、jperl、binmode、utf8、utf8::is_uft8。
+</p>
+<p>
+  さて、私たちは、いったい何を信用すればよいのでしょうか?
+</p>
+<p>
+  どうして、これほどまでに、Webに存在する日本語処理の方法は、混在しているのでしょうか?
+</p>
+<p>
+  ひとつの理由は、時代の推移にあります。
+</p>
+<h4>日本語を正しくサポートしていなかったPerl 4とPerl 5初期</h4>
+<p>
+  Perl 4とPerl 5の初期は、Unicodeのサポートが存在していません。
+</p>
+<p>
+  ですので、この時代Windowsのcp932(Shift_JISの派生)で、Perlを使おうと思うと、日本語処理が不便でした。
+</p>
+<p>
+  ですので、Perlにcp932の文字コードをそのまま扱えるパッチをあてたJPerlというものが開発されました。
+</p>
+<p>
+  これは、Perl本体にパッチをあてています。つまり、jperlは、Perlそのものではなくって、Perlの派生です。
+</p>
+<p>
+  これとは別に、Perlで日本語処理を扱う方法として、Perlとjcode.plと呼ばれる文字のエンコードモジュールを使う方法も存在しました。
+</p>
+<p>
+  jcode.plをモジュール化したのがJcode.pmです。
+</p>
+<p>
+  Perl 5の後期で、Unicodeをサポートすることによって、Perl本体でも、日本語のようなマルチバイト文字を扱おうという流れになってきました。
+</p>
+<p>
+  Perl 5.6で試験的にUnicdeがサポートされ、Perl 5.8でEncodeが導入されました。Unicode周辺のバグがなくなったのは、Perl 5.8.7です。
+</p>
+<p>
+  これは、2002年～2007年の間です。
+</p>
+<h4>日本語処理、大混乱の時期</h4>
+<p>
+  もちろんUnicodeがサポートされたからといって、以前の習慣があるわけですから、そんなに簡単に、新しい習慣に変えられるはずもありません。
+</p>
+<p>
+  実際、jcode.plやJCode.pmを使っているプログラムを、新しいUnicodeの仕組みにリファクタリングするのは、かなりの労力が必要です。
+</p>
+<p>
+  JPerlの側から見れば、利便性を考えた場合に、Perl 5.8のUnicodeサポートを利用する場合は、ひと手間増えるのは事実でした。
+</p>
+<p>
+  また、新しいUnicodeの仕組みは、内部の文字コードと外部の文字コードを明確に区別するという仕組みでしたから、jcode.plやJCode.pmのエンコーディングの仕組みとは、根本的に概念が異なるのです。
+</p>
+<p>
+  新しいUnicodeの仕組みは、不便で、よくわからないものでした。文字を結合すれば、文字化けするし、Wide Characterの警告を出しまくるし、これは、Perlコアチームの失敗だったと、感じたわけです。
+</p>
+<p>
+  utf8::is_utf8で、Perlが内部の文字コードを使っているか、外部の文字コードを使っているかを判定できると誤解されていた時期もありました。
+</p>
+<p>
+  Perlに詳しい人や、Perlのコミュニティ、CPAN著者でも誤解して使っていました。
+</p>
+<p>
+  大混乱の時期があったわけです。
+</p>
+<p>
+  でも、僕が、Perlや文字コードを学んで2020年から振り返ってみると、Perlの後方互換性を保ちながら、Unicodeを導入するために、これより優れた方法はあったのだろうか?
+</p>
+<p>
+  「どうしたらよかったんだ?」と考えたときに、これより良い方法をなかなか思いつけないのです。
+</p>
+<p>
+  Perlのコアチームは、制約の中で、最善の実装をしたと思います。
+</p>
+<h4>単純な解決策は、外に出すときはencode、内にいれるときは、decode</h4>
+<p>
+  2020年におけるPerlの文字コードの単純で良い方針は、プログラムの外に出すときはEncodeモジュールのencode関数で、実際の文字コードに変換し、decode関数で、内部の文字コードに変換するというものです。
+</p>
+<p>
+  プログラムはUTF-8で保存し、先頭に「use utf8」を記述します。
+</p>
+<p>
+  これだけです。
+</p>
+<p>
+  パフォーマンスや記述の楽さの点で、他の方法も存在しますが、まず、単純で、あらゆるパターンに対応できる、上記の方法を覚えるのがよいでしょう。
+</p>
+<p>
+  詳しくは以下の記事で解説しています。
+</p>
+<ul>
+  <li><a href="https://tutorial.perlzemi.com/blog/20091118124667.html">Encodeモジュール - 日本語などのマルチバイト文字列を適切に処理する</a></li>
+</ul>
+<h3>よくある質問</h3>
+<h4>日本語ファイル名はどのように扱いますか?</h4>
+<p>
+  open関数に渡すときに、cp932にエンコードします。ファイル名は、プログラムの外側にあります(OSはプログラムの外側)ので、open関数を呼び出す位置で、encodeします。
+</p>
+<pre>
+use utf8;
+
+my $file = 'あああ.txt';
+
+open my $fh, '&lt;', encode('cp932', $file)
+  or die "Can't open file: $!";
+</pre>
+<p>
+  open以外のファイル名を受け取る関数(unlinkやFile::Copy::copy, File::Copy::move)なども同じです。
+</p>
+<p>
+  あまりにもたくさんある場合は、サブルーチン化すると、少し楽になります。
+</p>
+<pre>
+use utf8;
+
+sub cp932 {
+  my ($file) = @_;
+  
+  $file = encode('cp932', $file);
+  
+  return $file;
+}
+
+my $file = 'あああ.txt';
+
+open my $fh, '&lt;', cp932($file)
+  or die "Can't open file: $!";
+</pre>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a rel="nofollow" href="http://www.perlzemi.com">Perlゼミのプログラミングスクールはこちら</a> & <a rel="nofollow" href="https://jp.giblog.net/">このサイトはGiblogで製作されています</a>
+
+      </div>
+    </div>
+  </body>
+</html>
