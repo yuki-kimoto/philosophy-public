@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlはどんな風に書いても動きますか? - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlはどんな風に書いても動きますかという質問に答えましょう。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20200120094159.html">Perlはどんな風に書いても動きますか?</a></h2>
+<p>
+  Perlはどんな風に書いても動きますかという質問に答えましょう。
+</p>
+<h3>Perlは構文木にコンパイルされる言語</h3>
+<p>
+  Perlのソースコードは、構文木にコンパイルされます。1行実行のインタープリタではないです。
+</p>
+<p>
+  Perlとしての文法が間違っていれば、実行前に、コンパイルエラーとなります。
+</p>
+<p>
+  実際にPerlの「-c」オプションを使うと、コンパイルまでの段階だけを実行できることが確認できます。
+</p>
+<pre>
+perl -c script.pl
+</pre>
+<p>
+  ですので、どんな風に書いても動きますかという質問の答えは、ノーです。
+</p>
+<h3>どんな風に書いても動くというのは、Perlは、文法エラーを見逃しやすいという意味です</h3>
+<p>
+  どんな風に書いても動くというのは、Perlは、文法エラーを見逃しやすいという意味です。
+</p>
+<p>
+  もし質問がこのような意味であれば、イエスでも、ノーでもあります。
+</p>
+<p>
+  ノーと答えられる場合は、以下の二行が、ソースコードの先頭に書かれている場合です。
+</p>
+<pre>
+use strict;
+use warnings;
+</pre>
+<p>
+  Perlの良い慣習として、ソースコードを書く場合は(ワンライナーを書く場合を除いて)この二行を書きます。
+</p>
+<p>
+  strictは、文法を厳格にし、warningsは、見逃しやすい警告を表示してくれます。
+</p>
+<p>
+  Perlのコアチームは、Perlのバージョンが5に上がる前の段階で、Perlでは、ユーザーがミスをたくさんしてしまうという問題に気が付いていました。
+</p>
+<p>
+  そのために、Perl 5には、strictとwarningsという仕組みが導入されました。
+</p>
+<p>
+  これは、実際に成功しており、変数宣言の忘れや、未定義値を、使うべきではない場所で使ってしまうという間違いを、簡単に見つけられます。
+</p>
+<p>
+  Perl 4のころのPerlは、文法エラーを見逃しやすいというのは本当ですが、Perl 5で、strictとwarningsが有効にすれば、文法エラーを簡単に発見できます。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a rel="nofollow" href="http://www.perlzemi.com">Perlゼミのプログラミングスクールはこちら</a> & <a rel="nofollow" href="https://jp.giblog.net/">このサイトはGiblogで製作されています</a>
+
+      </div>
+    </div>
+  </body>
+</html>
