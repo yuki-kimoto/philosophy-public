@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlの起動速度はピカイチ - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="プログラミング言語の中でも、Perlの起動速度は、ピカイチ。ソースコードの量が増えてきても、修正した後、プログラムを実行するときの起動は一瞬です。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20200210114201.html">Perlの起動速度はピカイチ</a></h2>
+<p>
+  プログラミング言語の中でも、Perlの起動速度は、ピカイチ。ソースコードの量が増えてきても、修正した後、プログラムを実行するときの起動は一瞬です。
+</p>
+<h3>Perlの起動速度が速い理由</h3>
+<p>
+  Perlの起動速度が速い理由は、抽象構文木を生成した後、抽象構文木のまま、ある程度の最適化が行われ、実行されるからです。
+</p>
+<p>
+  他の言語では、たとえば、抽象構文木を作った後、さらに、バイトコードに変換されます。この処理は、実際には、気になるほどに、遅くはありませんが、Perlと比較すると、解析量が多くなっています。
+</p>
+<p>
+  また、静的言語のように、実行速度を徹底的に最適化するためには、さらなる解析が必要になります。
+</p>
+<p>
+  Perlは、コード量が増えてきても、ソースコードの修正とプログラムの起動の繰り返しを気持ちよく行えます。
+</p>
+<h3>実行速度に影響がでるのではありませんか?</h3>
+<p>
+  はい、実行速度に影響がでます。特に、バイトコードに変換される場合と比べて、スループットは、低下します。Perlは、スループットを最大限に必要とする処理には、向いていません。ただし、サーバーによる分散化や、マルチプロセスなど、スケーリングする方法があるため、実務では、それほど問題にはなりません。
+</p>
+<p>
+  一方で、テキスト処理や、Webアプリケーションのパフォーマンスは、良いです。繰り返し大量に文字列が処理される場面を想定して、Perlが最適化されているためです。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a rel="nofollow" href="http://www.perlzemi.com">Perlゼミのプログラミングスクールはこちら</a> & <a rel="nofollow" href="https://jp.giblog.net/">このサイトはGiblogで製作されています</a>
+
+      </div>
+    </div>
+  </body>
+</html>
