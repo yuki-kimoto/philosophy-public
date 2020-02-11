@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlは正規表現が言語に組み込まれている - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlはプログラミング言語に正規表現が組み込まれています。このため、頻繁に出てくる文字列処理を、短く高速に書くことができます。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20200211075143.html">Perlは正規表現が言語に組み込まれている</a></h2>
+<p>
+  Perlはプログラミング言語に正規表現が組み込まれています。このため、頻繁に出てくる文字列処理を、短く高速に書くことができます。
+</p>
+<h3>パターンマッチにおける正規表現の構文</h3>
+<p>
+  文字列処理では、このパターンの文字が、文字列に含まれているかを確認したいということが頻繁にあります。Perlであれば、正規表現が言語に組み込まれているので、パターンマッチの構文を使って、正規表現を書くことができます。
+</p>
+<pre>
+# 正規表現のパターンマッチの構文
+if ($str =~ /正規表現/) {
+
+}
+</pre>
+<h3>繰り返しのパターンマッチ</h3>
+<p>
+  正規表現が言語に組み込まれているので、構文解析において、正規表現の構文も解析されます。パターンマッチの繰り返しを簡単に書く構文が存在します。
+</p>
+<pre>
+while ($str =~ /(正規表現)/g) {
+  my $match = $1;
+}
+</pre>
+<p>
+  while文と正規表現のgオプションを組み合わせることで、繰り返しのパターンマッチを簡単に書くことができます。内部実装としては、繰り返しのタイミングで、文字列の開始位置を保存しておく変数が存在しています。
+</p>
+<h3>置換における正規表現の構文</h3>
+<p>
+  Perlは、置換における正規表現の構文が存在します。Perlは、<a href="/blog/20190924071341.html">sed</a>の構文を採用しました。<a href="https://linux.perlzemi.com/blog/20200211081227.html">Linuxコマンド</a>のsedを使う感覚で、短い構文で、文字列の置換を行うことができます。
+</p>
+<pre>
+# 正規表現の置換の構文
+$str =~ s/正規表現/置換後の文字列/;
+</pre>
+<h3>日本語を正規表現で正しく扱えますか?</h3>
+<p>
+  はい、日本語を正規表現で正しく扱えます。日本語を正しく扱うには、以下の記事を参考にしてください。
+</p>
+<p>
+  <a href="/blog/20091118124667.html">Encodeモジュール - 日本語などのマルチバイト文字列を適切に処理する</a>
+</p>
+<p>
+  デコードされた文字列に変換することで、日本語を正規表現で正しく扱うことができます。
+</p>
+<h3>正規表現が組み込まれているプログラミング言語は他にありますか</h3>
+<p>
+  正規表現が組み込まれているプログラミング言語は、Perlの他には、Rubyがあります。Rubyは、Perlの正規表現の文法を採用しています。
+</p>
+<pre>
+# Rubyのパターンマッチの構文
+文字列 =~ /正規表現/
+</pre>
+<p>
+  多くの言語は、ライブラリとして正規表現を提供しています。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://kimoto-system.co.jp/">サイト運営 木本システム</a> <span style="color:white">&</span> <span style="color:white">Copyright © 2020-2020 Yuki Kimoto</span>
+
+      </div>
+    </div>
+  </body>
+</html>
