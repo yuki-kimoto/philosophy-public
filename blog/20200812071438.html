@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>C言語/C++とPerlの関係性について語る - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="C言語/C++とPerlの関係性について語ります。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20200812071438.html">C言語/C++とPerlの関係性について語る</a></h2>
+<p>
+  C言語/C++とPerlの関係性について語ります。
+</p>
+<h3>PerlはC言語で書かれている</h3>
+<p>
+  PerlはC言語で書かれています。Perlプログラミング言語は、C言語で書かれ、gccなどのCコンパイラでコンパイルされることが想定されています。
+</p>
+<p>
+  この点で、PerlはC言語に依存しているといえます。
+</p>
+<p>
+  また、Perl以後に作成された、Python、PHP、Rubyも、同じくC言語で書かれています。動的プログラミング言語をC言語で書くということは、広く行われていますが、Perlの例が早い時期にありました。
+</p>
+<h3>C言語とプログラミング言語</h3>
+<p>
+  C言語は、実用的なプログミング言語を作成することに、向いているプログラミング言語です。C言語は、多くのOS環境でコンパイルでき、コンパイル後は機械語になり、メモリの確保やメモリのアドレス位置によるアクセスなど、メモリ操作を自由にできます。
+</p>
+<p>
+  Perlはメモリ安全なプログラミング言語ですが、メモリ安全なプログラミング言語を書く場合には、メモリ安全ではないC言語で、メモリ安全になるプログラミングロジックを書きます。
+</p>
+<p>
+  C言語は、例外的な場合を除いて、原則としてライブラリの中で、メモリを確保しないという方針があるように見えます。文字列置換、動的配列、連想配列など、メモリ確保のロジックが必要な関数がありません。
+</p>
+<p>
+  これは、C言語の劣っている点ではなく、メモリ確保は、原則ユーザーの責任において行うというC言語の哲学のように見えます。
+</p>
+<p>
+  文字列置換、動的配列、連想配列などが必要な場合は、プログラミング言語作者が自前で実装する必要があります。
+</p>
+<h3>PerlからC言語を呼び出す</h3>
+<p>
+  Perlには、C言語の関数を呼び出すためのXSという仕組みがあります。XSはC言語で書かれ、共有ライブラリ(.so、.dll)にコンパイルされ、Perlから呼び出すことができます。
+</p>
+<p>
+  つまり、C言語で書かれたライブラリは、ヘッダとソースファイルがあれば、XSからそれを呼び出すことによってバインディングできるということです。
+</p>
+<p>
+  また共有ライブラリになっていれば、それを呼び出すことができます。
+</p>
+<p>
+  Perlから、C言語を呼び出す仕組みには、<a href="https://tutorial.perlzemi.com/blog/20100809127859.html">XS</a>、FFI、Inline::C、<a href="https://yuki-kimoto.github.io/spvmdoc-public/">SPVM</a>などがありますが、XSはその一つです。
+</p>
+<h3>PerlからC++を呼び出す</h3>
+<p>
+  Perlには、C言語の関数を呼び出すためのXSという仕組みがありますが、C++の機械語は実質的にはC言語から生成された機械語と同じです。C++とC言語の違いは、関数の呼び出し名だけです。そのため、C++の関数の呼び出し名を、C言語の呼び出し名に変更することで、C++の関数を呼び出すことができます。
+</p>
+<p>
+  これは「extern "C"」構文を使って行うことができます。
+</p>
+<pre>
+extern "C" {
+  // C++の関数
+}
+</pre>
+<p>
+  C++で書かれたライブラリは、ヘッダとソースファイルがあれば、XSからそれを呼び出すことによってバインディングできます。
+</p>
+<p>
+  また共有ライブラリになっていれば、それを呼び出すことができます。共有ライブラリになっているということは、C言語関数呼び出し形式にすでになっているということです。
+</p>
+<p>
+  Perlから、C++を呼び出す仕組みには、C言語と同じように、<a href="https://tutorial.perlzemi.com/blog/20100809127859.html">XS</a>、FFI、Inline::C、<a href="https://yuki-kimoto.github.io/spvmdoc-public/">SPVM</a>などがあります。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://kimoto-system.co.jp/">サイト運営 木本システム</a> <span style="color:white">&</span> <span style="color:white">Copyright © 2020-2020 Yuki Kimoto</span>
+
+      </div>
+    </div>
+  </body>
+</html>
