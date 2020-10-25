@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="shortcut icon" href="/images/philosophi-favicon.png">
+
+<title>Perlの文字列リテラルはUnix/Linuxシェルのシングルクォートとダブルクォートと似たように機能する - Perlの哲学 - Perlに対する誤解を解きたい</title>
+<meta name="description" content="Perlがシェルフレンドリーなひとつの理由として、Perlの文字列リテラルはUnix/Linuxシェルのシングルクォートとダブルクォートと似たように機能することがあげられます。">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/philosophi-logo.png" alt="Perlの哲学 - Perlに対する誤解を解く"></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <h2><a href="/blog/20201026082415.html">Perlの文字列リテラルはUnix/Linuxシェルのシングルクォートとダブルクォートと似たように機能する</a></h2>
+<p>
+  Perlがシェルフレンドリーなひとつの理由として、Perlの文字列リテラルは<a href="https://linux.perlzemi.com/">Unix/Linuxシェル</a>のシングルクォートとダブルクォートと似たように機能することがあげられます。
+</p>
+<h3>シングルクォート文字列</h3>
+<p>
+  Perlのシングルクォート文字列は、変数展開を行いません。この動作は、Unix/Linuxシェルと同じです。
+</p>
+<pre>
+# 変数展開しない(hello $name)
+my $message = 'hello $name';
+</pre>
+<h3>ダブルクォート文字列</h3>
+<p>
+  Perlのダブルクォート文字列は、変数展開を行います。この動作は、Unix/Linuxシェルと同じです。
+</p>
+<pre>
+# 変数展開する(hello kimoto)
+my $name = 'kimoto';
+my $hessage = "hello $name";
+</pre>
+<p>
+  シェルのシングルクォートとダブルクォートと似たように動作するので、覚えておきやすいですね。
+</p>
+<h3>Perlとシェルの文字列リテラルの違いは?</h3>
+<p>
+  Perlとbashとの違いはあります。それはバックスラッシュ「\」が、エスケープシーケンスとして解釈されることです。Perlの場合は、どのUnix/Linux環境であってもダブルクォートの中の「\n」で改行を表現できます。エスケープシーケンスについてはC言語との類似性をPerlの開発者は選んだようです。
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <!-- side -->
+<div class="side-list">
+  <div class="side-list-title">
+    目次
+  </div>
+  <ul>
+    <li><a href="/list.html">記事の一覧</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://kimoto-system.co.jp/">サイト運営 木本システム</a> <span style="color:white">&</span> <span style="color:white">Copyright © 2020-2020 Yuki Kimoto</span>
+
+      </div>
+    </div>
+  </body>
+</html>
