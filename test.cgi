@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/css/common.css">
 <link rel="shortcut icon" href="/images/philosophi-favicon.png">
 
-<title>Title - Perlの哲学 - Perlに嫌われる理由はありますか? Perlに対する誤解を解きたい</title>
+<title>Title - Perlの哲学 - Perl元気塾のPerl哲学講座</title>
 <meta name="description" content="#!/usr/bin/env perl">
   </head>
   <body>
@@ -123,6 +123,9 @@
   <ul>
     <li style="text-align:center;padding-left:0"><a href="http://www.perlri.com/"><img width="110" src="https://tutorial.perlzemi.com/images/kaeru_w_01.png"><br>プログラミングスクール<br>Perl元気塾</a></li>
   </ul>
+</div>
+
+<div class="side-list">
   <div class="side-list-title">
     目次
   </div>
