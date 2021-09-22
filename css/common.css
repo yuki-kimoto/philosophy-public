@@ -11,10 +11,58 @@
     color:#0000EE;
   }
   
-  /* header */
+  /* ヘッダ */
   .header {
+    width:100%;
+    border-bottom:2px solid #cccccc;
+    margin-bottom:5px;
     background:white;
-    margin-bottom:15px;
+  }
+  .header_main {
+    width:100%;
+    max-width:1030px;
+    display:flex;
+    margin:0 auto;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: “Calibri”,”メイリオ”,Meiryo,”ヒラギノ角ゴ Pro W3″,Hiragino Kaku Gothic Pro,”ＭＳ Ｐゴシック”,sans-serif; 
+  }
+  h1 {
+    font-family: “Calibri”,”メイリオ”,Meiryo,”ヒラギノ角ゴ Pro W3″,Hiragino Kaku Gothic Pro,”ＭＳ Ｐゴシック”,sans-serif; 
+    padding: 5px 15px 9px 15px;
+    color:#333;
+    font-family: "times new roman", "geogia", serif;
+    float:left;
+    width:75%;
+    display:inline-block;
+    padding:5px 10px 7px 10px;
+  }
+  h1 a, h1 a:visited {
+    color:#333;
+    text-decoration:underline;
+    font-weight:bold;
+    letter-spacing:1px;
+    font-size:20px;
+    text-decoration:none;
+  }
+  h1 img {
+    width:40px;
+    vertical-align:-12px;
+    margin-right:10px;
+  }
+  .header_right {
+    width:25%;
+    text-align:right;
+  }
+  .header_right a,.header_right a:visited {
+    display:inline-block;
+    background:#FF4DA0;
+    color:white;
+    text-decoration:none;
+    padding:15px 25px 10px 25px;
+    text-align:center;
+    font-weight:bold;
+    height:100%;
   }
   
   .footer {
@@ -106,7 +154,7 @@
   
   /* main */
   .main {
-    max-width:960px;
+    max-width:1030px;
     width:100%;
     margin: 0 auto 15px auto;
   }
@@ -119,7 +167,8 @@
   /* content */
   .content {
     float:left;
-    width:74%;
+    width:calc(100% - 320px - 20px);
+    padding-top:5px;
   }
   
   /* entry */
@@ -135,29 +184,49 @@
     line-height:1.5;
   }
   
-  /* side */
+  /* サイドバー */
   .side {
-    float:left;
-    width:25%;
-    margin-left:1%;
+    float:right;
+    width:320px;
+    padding-top:12px;
+  }
+  .side_list {
+  }
+  .side_list_title {
+    background:#70AD47;
+    color:white;
+    font-weight:bold;
+    padding: 11px 0px 9px 0px;
+    text-align:center;
+  }
+  .side_list_body {
+    text-align:center;
+    letter-spacing:1px;    
+    font-weight:bold;
+    line-height:1.5;
+    font-size:16px;
+  }
+
+  .side_list_image img {
+    width:200px;
+  }
+  .side_list ul {
+    margin-bottom:30px;
+  }
+  .side_list li {
+    list-style:none;
+    background:white;
+    border:1px solid #D0D0DA;
+    border-bottom:none;
+    padding:12px 0px 10px 15px;
+  }
+  .side_list li:last-child {
+    border-bottom:1px solid #D0D0DA;
+  }
+  .side_list li:first-child {
+    border-top:none;
   }
   
-  /* tags */
-  h1 {
-    max-width:960px;
-    width:100%;
-    font-size:30px;
-    padding:12px 10px 0 13px;
-    margin: 0 auto;
-  }
-  h1 a, h1 a:visited {
-    color:white;
-    text-decoration:none;
-    color:white;
-  }
-  h1 img {
-    width:230px;
-  }
   h2 {
     font-size:27px;
     padding:10px 0;
@@ -233,43 +302,63 @@
   .before-days {
     text-align:center;
   }
-  .side-list {
-    box-shadow: 0 0 3px rgba(0,0,0,.1);
-    margin-bottom:30px;
-  }
-  .side-list-title {
-    background:#70AD47;
-    color:white;
-    font-weight:bold;
-    padding: 7px 0px 5px 0px;
-    text-align:center;
-    border:1px solid #ccc;
-    border-bottom:none;
-  }
-  .side-list ul {
-    border:1px solid #ccc;
-  }
-  .side-list li {
-    list-style:none;
-    background:white;
-    border-bottom:1px solid #ccc;
-    padding:7px 10px 5px 10px;
-  }
-  .side li:last-child {
-    border-bottom:none;
-  }
 
-/* Tablet and Smart phone */
-@media only screen and (max-width:960px) {
-  .content {
-    float:none;
-    width:97%;
-    margin:0 auto;
-    margin-bottom:15px;
+  .perlclub_register {
+    width:calc(100% - 30%);
+    max-width:500px;
+    margin:50px auto;
   }
+  .perlclub_register a {
+    line-height:1.9;
+    text-align:center;
+    font-weight:bold;
+    font-size:19px;
+    display:block;
+    padding:33px 30px;
+    background:#FF4DA0;
+    text-decoration:none;
+    border-radius:5px;
+    color:white;
+  }
+  .perlclub_register a:hover {
+    opacity:0.8;
+  }
+  
+/* Tablet and Smart phone */
+@media only screen and (max-width:1030px) {
+  .content {
+    margin:0;
+    padding:0;
+    width:100%;
+    height:auto;
+    overflow:visible;
+  }
+  .hide-smartphone {
+    display:none;
+  }
+  
+  /* ヘッダ */
+  .header_main, h2,h4,h5, p, pre {
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .header_right a,.header_right a:visited {
+    padding:15px 10px 10px 10px;
+  }
+  
+  /* サイドバー */
   .side {
-    float:none;
-    width:97%;
-    margin:0 auto;
+    margin:0;
+    padding:0;
+    width:100%;
+    height:auto;
+    overflow:visible;
+  }
+  .side_list li {
+    border-left:none;
+    border-right:none;
+  }
+  .side_list li:last-child {
+    border-bottom:none;
   }
 }
