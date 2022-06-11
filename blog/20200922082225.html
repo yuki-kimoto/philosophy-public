@@ -52,7 +52,7 @@
     <a href="/"><img src="/images/logo.png">Perlの哲学</a>
   </h1>
   <div class="header_right">
-    <a rel="nofollow" href="https://perlclub.net/account/create">会員登録</a>
+    <a rel="nofollow" href="https://perlclub.net"><img src="/images/perl_club_logo.png"></a>
   </div>
 </div>
 
